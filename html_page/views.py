@@ -67,7 +67,7 @@ def ajaxcall_master_trs(request):
 def ajaxcall_append(request):
 	searchStr = request.POST.get("autoid", "")
 	#print(searchStr)
-	mydb = MySQLdb.connect(
+	mydb = mysql.connector.connect(
 		host="103.145.50.139",
 		user="techinsig_midi",
 		password="cn3qdUp3Q*P!",
@@ -92,7 +92,7 @@ def ajaxcall_appendprs(request):
 	searchStr = request.POST.get("hsncodes", "")
 	#print("testttttttttttt")
 	#print(searchStr)
-	mydb = MySQLdb.connect(
+	mydb = mysql.connector.connect(
 		host="103.145.50.139",
 		user="techinsig_midi",
 		password="cn3qdUp3Q*P!",
