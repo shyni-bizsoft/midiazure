@@ -6,8 +6,8 @@ from django.db import connection
 from django.http import HttpResponse
 from django.http import JsonResponse
 from .models import *
-# import mysql
-import MySQLdb
+import mysql
+# import MySQLdb
 
 # Create your views here.
 def under_maintenance(request):
@@ -33,13 +33,14 @@ def ajaxcall_master_trs(request):
 	if request.method == "POST":
 		searchStr = request.POST.get("searchStr", "")
 		print(searchStr)
-		mydb = MySQLdb.connect(
+		mydb = mysql.connector.connect(
 			host="103.145.50.139",
 			user="techinsig_midi",
 			password="cn3qdUp3Q*P!",
 			database="techinsig_midi"
 			)
 		cursor = mydb.cursor()
+		cnx = mysql.connector.connect(user='angryCoot2@server265580825', password='3c4b697a-a64f-446b-ad61-fbeea99a9324', host='server265580825.mysql.database.azure.com', port=3306, database='sampledb')
 		
 		#select... afield like '%%%s%%' and secondfield = '%s'..." % ( var1, var2 )
 		#cursor.execute("SELECT * FROM trs_master where  hsn_code like '%%%s%%'" % ( searchStr ))
